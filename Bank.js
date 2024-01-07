@@ -18,6 +18,7 @@ export class Bank {
 }
 
 export class Client {
+
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
@@ -30,4 +31,7 @@ export class Client {
   getBalance() {}
 
   displayClientIdentity() {}
+
+  updateClientIdentity(name) {}
+    
 }
