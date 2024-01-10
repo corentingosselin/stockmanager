@@ -11,31 +11,41 @@ export class Bank {
   }
 
   displayClient(name) {
-    var result = "";
-    for (var client in clients) {
-      if(client.name == name){result += i.getBalance();
+    let result = None;
+    for (let client in clients) {
+      if(client.name == name){result = client.getBalance();
       }
     }
     console.log(result);
   }
 
   displayAllClients() {
-    for (var client in clients) {
+    for (let client in clients) {
       client.displayClientIdentity();
     }
   }
 
   displayRichestClient(top = 10) {
+    result = [];
     for (let step = 0; step < top; step++) {
-      for (var client in clients) {
-        if(client.balance == name){result += i.getBalance();
+      max = clients[0].balance;
+      his_name = clients[0].name;
+      for (let client in clients) {
+        if(client.balance > max){
+          max = client.balance;
+          his_name = client.name;
         }
       }
+      result.push(his_name)
     console.log(result);
     }
   }
 
-  removeClient(name) {}
+  removeClient(name) {
+    for (let step = 0; step < this.clients.length; step++) {
+      if(client.name == name){delete clients[step]}
+    }
+  }
 }
 
 export class Client {
