@@ -14,7 +14,11 @@ export class Bank {
   displayClient(name) {
     const client = this.clients.find(client => client.name === name);
     if (client) {
+<<<<<<< Updated upstream
       console.log(`Nom : ${client.name}, Dépositaire de: ${client.balance} €`);
+=======
+      console.log(`Nom : ${client.name}, Dépositaire de: ${client.balance}`);
+>>>>>>> Stashed changes
     } else {
       console.log(`Le client nommé ${name} n'a pas été trouvé.`);
     }
@@ -30,7 +34,11 @@ export class Bank {
     const sortedClients = this.clients.slice().sort((a, b) => b.balance - a.balance);
     const topClients = sortedClients.slice(0, top);
     topClients.forEach(client => {
+<<<<<<< Updated upstream
       console.log(`Nom du client: ${client.name}, Dépositaire de: ${client.balance}€`);
+=======
+      console.log(`Nom du client: ${client.name}, Dépositaire de: ${client.balance}`);
+>>>>>>> Stashed changes
     });
   }
 }
