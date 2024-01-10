@@ -8,15 +8,46 @@ export class Bank {
   }
 
 
-  addClient(client) {}
+  addClient(client) {
+    this.clients.push(client)
+  }
 
-  displayClient(name) {}
+  displayClient(name) {
+    let result = None;
+    for (let client in clients) {
+      if(client.name == name){result = client.getBalance();
+      }
+    }
+    console.log(result);
+  }
 
-  displayAllClients() {}
+  displayAllClients() {
+    for (let client in clients) {
+      client.displayClientIdentity();
+    }
+  }
 
-  displayRichestClient(top = 10) {}
+  displayRichestClient(top = 10) {
+    result = [];
+    for (let step = 0; step < top; step++) {
+      max = clients[0].balance;
+      his_name = clients[0].name;
+      for (let client in clients) {
+        if(client.balance > max){
+          max = client.balance;
+          his_name = client.name;
+        }
+      }
+      result.push(his_name)
+    console.log(result);
+    }
+  }
 
-  removeClient(name) {}
+  removeClient(name) {
+    for (let step = 0; step < this.clients.length; step++) {
+      if(client.name == name){delete clients[step]}
+    }
+  }
 }
 
 
@@ -31,18 +62,27 @@ export class Client {
     this.balance = balance;
   }
 
-  deposit(amount) {}
+  deposit(amount) {
+    this.balance += amount;
+  }
 
   withdraw(amount) {
     if(amount > this.balance && !this.allowedNegativeBalance) {
       console.log("Not enough money");
     }
+    else{this.balance -= amount;}
   }
 
-  getBalance() {}
+  getBalance() {
+    return this.balance;
+  }
 
-  displayClientIdentity() {}
+  displayClientIdentity() {
+    console.log(this.name);
+  }
 
-  updateClientIdentity(name) {}
+  updateClientIdentity(name) {
+    this.name = name;
+  }
     
 }
