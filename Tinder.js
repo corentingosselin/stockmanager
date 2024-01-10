@@ -61,8 +61,8 @@ function addProfile(profile) {
 }
 
 function removeProfile(email) {
-    profiles.forEach(function(element) {
-        if(element.email === email) {delete element}
+    profiles.forEach(function(profile) {
+        if(profile.email === email) {delete profile}
     })
 }
 
@@ -82,7 +82,11 @@ function displayAllProfiles() {
 // également prendre en compte le genre recherché
 // également prendre en compte les préférences (il faut minimum 1 préférence en commun)
 function displayPossibleMatches(profileEmail, profileNumber=3) {
-
+    profiles.forEach(function(profile) {
+        if(profile.email === profileEmail) {
+            me = profile;
+        }
+    })
 }
 
 // Matcher 2 profiles
