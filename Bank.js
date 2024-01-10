@@ -1,10 +1,12 @@
 export class Bank {
+
   name = "";
+  clients = [];
+
   constructor(name) {
     this.name = name;
   }
 
-  clients = [];
 
   addClient(client) {}
 
@@ -17,8 +19,13 @@ export class Bank {
   removeClient(name) {}
 }
 
+
+
+
+
 export class Client {
 
+  allowedNegativeBalance = false;
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
@@ -27,6 +34,9 @@ export class Client {
   deposit(amount) {}
 
   withdraw(amount) {
+    if(amount > this.balance && !this.allowedNegativeBalance) {
+      console.log("Not enough money");
+    }
     console.log("withdraw", amount);
   }
 
