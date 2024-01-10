@@ -104,6 +104,12 @@ function refuseProfile(profile) {
 }
 
 function displayMyMatches(email) {
+    const profile = profiles.find(profile => profile.email === email);
+    if (profile) {
+        console.log(`Matches for ${email}: ${profile.matches.join(", ")}`);
+    } else {
+        console.log(`Profile with email ${email} not found.`);
+    }
 
 }
 
