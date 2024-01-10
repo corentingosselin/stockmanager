@@ -71,6 +71,7 @@ export class Client {
       console.log("Not enough money");
     }
     else{this.balance -= amount;}
+    console.log("withdraw", amount);
   }
 
   getBalance() {
