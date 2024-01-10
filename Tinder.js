@@ -79,6 +79,16 @@ function displayPossibleMatches(profileEmail, profileNumber=3) {
 
 // Matcher 2 profiles
 function matchProfiles(email, targetEmail) {
+    const profile = profiles.find(profile => profile.email === email);
+    const targetProfile = profiles.find(profile => profile.email === targetEmail);
+
+    if (profile && targetProfile) {
+        profile.matches.push(targetEmail);
+        targetProfile.matches.push(email);
+        console.log(`Profiles matched: ${email} and ${targetEmail}.`);
+    } else {
+        console.log("One or both profiles not found.");
+    }
 }
 
 // Refuser un profile, le score du profile est diminué de 1
