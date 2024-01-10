@@ -2,6 +2,7 @@
 
 // ajouter au moins 10 profils
 const profiles = [];
+const bannedEmails = [];
 const exampleProfile = {
     name: "John Doe",
     email: "john@gmail.com",
@@ -17,6 +18,12 @@ const exampleProfile = {
 
 //un profile avec un email banni ne peut pas être ajouté
 function addProfile(profile) {
+    if (!profile.banned && !bannedEmails.includes(profile.email)) {
+        profiles.push(profile);
+        console.log(`Profile with email ${profile.email} added.`);
+    } else {
+        console.log(`Cannot add a banned or duplicate profile with email ${profile.email}.`);
+    }
 }
 
 function removeProfile(email) {
