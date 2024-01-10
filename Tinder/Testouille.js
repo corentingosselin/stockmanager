@@ -1,0 +1,1 @@
+const johnProfile = new Profile("John Doe", "john@gmail.com", "Male", "Female", 18, "I like to code", ["tennis", "pizza", "voyages"]);
