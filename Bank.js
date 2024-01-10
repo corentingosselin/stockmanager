@@ -11,12 +11,12 @@ export class Bank {
   }
 
   displayClient(name) {
-    const client = this.clients.find(this.client => client.name === name);
-    if(!client) {
+    const client = this.clients.find(client => client.name === name);
+    if (!client) {
       console.log('Client not found');
-      return
+      return;
     }
-    console.log(client);
+    console.log(`Client: ${client.name}, Balance: ${client.balance}`);
   }
 
   displayAllClients() {
