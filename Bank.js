@@ -81,18 +81,20 @@ export class Client {
     }
   }
 
-  withdraw(amount) {
-    if (amount > 0 && this.balance >= amount) {
-      this.balance -= amount;
-      console.log(`Le client ${this.name} a retiré :`, amount , "€")
+    withdraw(amount) {
+      if (amount > this.balance && !this.allowedNegativeBalance) {
+        console.log("Not enough money");
+      } else if (amount > 0 && this.balance >= amount) {
+        this.balance -= amount;
+        console.log(`Le client ${this.name} a retiré :`, amount , "€");
+      }
     }
-  }
 
-  getBalance() {
-    return this.balance;
-  }
+    getBalance() {
+      return this.balance;
+    }
 
-  displayClientIdentity() {
+    displayClientIdentity() {
     console.log(`Nom du client: ${this.name}, Dépositaire: ${this.balance} €`);
   }
 
