@@ -125,3 +125,134 @@ function banProfile(email) {
     }
 
 }
+
+// 10 profils créés via chatGPT
+addProfile({
+    name: "Alice Johnson",
+    email: "alice@gmail.com",
+    gender: "Female",
+    genderTarget: "Female",
+    matches: [],
+    banned: false,
+    age: 22,
+    bio: "I love painting",
+    preferences: ["art", "coffee", "travel"],
+    score: 4
+});
+
+addProfile({
+    name: "Bob Smith",
+    email: "bob@gmail.com",
+    gender: "Male",
+    genderTarget: "Male",
+    matches: [],
+    banned: false,
+    age: 28,
+    bio: "Tech enthusiast",
+    preferences: ["coding", "books", "music"],
+    score: 5
+});
+
+addProfile({
+    name: "Eva Rodriguez",
+    email: "eva@gmail.com",
+    gender: "Female",
+    genderTarget: "Male",
+    matches: [],
+    banned: false,
+    age: 25,
+    bio: "Fitness freak",
+    preferences: ["gym", "healthy food", "hiking"],
+    score: 3
+});
+
+addProfile({
+    name: "David Lee",
+    email: "david@gmail.com",
+    gender: "Male",
+    genderTarget: "Female",
+    matches: [],
+    banned: false,
+    age: 24,
+    bio: "Travel addict",
+    preferences: ["adventure", "photography", "movies"],
+    score: 4
+});
+
+addProfile({
+    name: "Sophie Brown",
+    email: "sophie@gmail.com",
+    gender: "Female",
+    genderTarget: "Male",
+    matches: [],
+    banned: false,
+    age: 26,
+    bio: "Foodie and movie buff",
+    preferences: ["food", "movies", "travel"],
+    score: 5
+});
+
+addProfile({
+    name: "Michael Wang",
+    email: "michael@gmail.com",
+    gender: "Male",
+    genderTarget: "Female",
+    matches: [],
+    banned: false,
+    age: 30,
+    bio: "Nature lover",
+    preferences: ["hiking", "camping", "gardening"],
+    score: 3
+});
+
+addProfile({
+    name: "Olivia Taylor",
+    email: "olivia@gmail.com",
+    gender: "Female",
+    genderTarget: "Male",
+    matches: [],
+    banned: false,
+    age: 23,
+    bio: "Bookworm and coffee addict",
+    preferences: ["books", "coffee", "music"],
+    score: 4
+});
+
+addProfile({
+    name: "Daniel Kim",
+    email: "daniel@gmail.com",
+    gender: "Male",
+    genderTarget: "Female",
+    matches: [],
+    banned: false,
+    age: 27,
+    bio: "Sports enthusiast",
+    preferences: ["basketball", "soccer", "fitness"],
+    score: 5
+});
+
+addProfile({
+    name: "Emma White",
+    email: "emma@gmail.com",
+    gender: "Female",
+    genderTarget: "Male",
+    matches: [],
+    banned: false,
+    age: 29,
+    bio: "Music lover",
+    preferences: ["music", "travel", "movies"],
+    score: 3
+});
+
+addProfile({
+    name: "Ryan Miller",
+    email: "ryan@gmail.com",
+    gender: "Male",
+    genderTarget: "Female",
+    matches: [],
+    banned: false,
+    age: 25,
+    bio: "Tech geek",
+    preferences: ["coding", "gaming", "movies"],
+    score: 4
+});
