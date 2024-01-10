@@ -1,5 +1,6 @@
 /*
 
+temps : 30m,
 
 Partie 1: POLYMORPHISME
 
@@ -12,58 +13,94 @@ Objectif :
     Classe de Base GameEntity (Entité de Jeu) :
 
         Propriétés : name (string).
-        Méthode : performAction(), qui affiche un message générique.
-        Créer des Sous-Classes de GameEntity :
+                     health (number) : Santé de l'entité.
+        Méthode : 
+            - damage(target) : Affiche un message indiquant que l'entité attaque la cible.
 
-        Soldier (Soldat) : Implémentez performAction() pour attaquer.
-        Villager (Villageois) : Implémentez performAction() pour récolter des ressources.
-        Building (Bâtiment) : Ajoutez une propriété type (par exemple, "Caserne"). Implémentez performAction() pour créer des unités ou améliorer des technologies.
+
+    Créer des Sous-Classes de GameEntity :
+
+        Soldier (Soldat) : Implémentez attack() pour attaquer. 
+
+        Villager (Villageois) : Implémentez farm() pour récolter des ressources.
+
+        Building (Bâtiment) : Ajoutez une propriété type (par exemple,type="Caserne"). 
+        Implémentez produceUnit(entityName) pour produire une nouvelle unité, un building ne peut produire que des soldats.
+
+        toutes les fonctions peuvent juste utiliser un console.log() pour afficher un message de l'action
 
     Méthodes Polymorphiques :
 
-        Chaque sous-classe doit avoir sa propre implémentation de performAction().
+        Chaque sous-classe doit avoir sa propre implémentation de damage().
+        Car une entité prendra des dégâts différemment, 
+        par exemple le villageois perds 2 fois plus de points de vie que le soldat.
+        le building ne peut être attaqué que par des soldats.
 
     Tests et Validation :
 
-        Créez des instances de chaque sous-classe et appelez leur méthode performAction() pour démontrer des comportements spécifiques.
+        Créez des instances de chaque sous-classe et appelez leurs méthodes pour démontrer des comportements spécifiques.
 
 
 
  */
 
-/*
+class GameEntity {
+  health = 100;
+  constructor(name) {
+    this.name = name;
+  }
 
-    Partie 2
+  damage(damager) {
+    console.log(`${this.name} attaque ${damager.name}.`);
+    this.health -= 10;
+  }
+}
 
-    Interaction et Combat dans un Jeu de Stratégie
-    Objectif :
-    Ajouter un système de santé et de dégâts pour permettre des interactions de combat entre différentes entités de jeu.
+class Soldier extends GameEntity {
+  damage(damager) {
+    console.log(`${this.name} attaque ${damager.name}.`);
+    this.health -= 20;
+  }
+}
 
-    Instructions :
-        Amélioration de la Classe GameEntity :
+class Villager extends GameEntity {
+  damage(damager) {
+    console.log(`${this.name} attaque ${damager.name}.`);
+    this.health -= 40;
+  }
 
-    Ajoutez une propriété health (santé).
-    Ajoutez une méthode takeDamage(damage) pour réduire la santé.
-    Modifiez performAction() pour qu'elle prenne une autre entité comme cible.
+  farm() {
+    console.log(`${this.name} récolte des ressources.`);
+  }
+}
 
-    Sous-Classes avec Capacités d'Attaque et de Défense :
+class Building extends GameEntity {
+  constructor(name, type) {
+    super(name);
+    this.type = type;
+  }
 
-        Soldier : Ajoutez une propriété damage. La méthode performAction(target) inflige des dégâts à la cible.
-        Villager : Ne peut pas attaquer, mais peut prendre des dégâts.
-        Building : Ne peut pas se déplacer ou attaquer, mais a une grande quantité de santé.
+  damage(damager) {
+    if (damager instanceof Soldier) {
+      console.log(`${this.name} attaque ${damager.name}.`);
+      this.health -= 50;
+    }
+  }
 
+  produceUnits() {
+    console.log(`${this.name} produit des unités.`);
+  }
+}
 
-    Implémenter des Interactions :
+// Exemple d'utilisation
+const soldier = new Soldier("Guerrier");
+const villager = new Villager("Villageois");
+const building = new Building("Caserne", "Caserne");
 
-        Les soldats peuvent attaquer d'autres soldats, des villageois ou des bâtiments.
-        Les villageois peuvent réparer des bâtiments ou être attaqués.
-        Les bâtiments peuvent être attaqués et détruits.
+soldier.damage(villager);
+villager.damage(soldier);
+building.damage(soldier);
+building.damage(villager);
 
-
-    Tests et Validation :
-
-        Créez des scénarios d'interaction, 
-        comme un soldat attaquant un villageois, ou un villageois réparant un bâtiment.
-
-
-*/
+console.log(soldier);
+console.log(villager);
