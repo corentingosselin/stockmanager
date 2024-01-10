@@ -16,16 +16,17 @@ const exampleProfile = {
 }
 
 function createProfile(number=10) {
-    letter1 = ["b", "f", "g", "j", "k", "l", "m", "m", "p", "s", "t"]
-    letter2 = ["a", "e", "i", "o", "u", "y"]
+    const letter1 = ["b", "f", "g", "j", "k", "l", "m", "m", "p", "s", "t"]
+    const letter2 = ["a", "e", "i", "o", "u", "y"]
+    const preferences = ["Food", "Sleep", "Sport", "Music", "Game"]
     for (let step = 0; step < number; step++) {
-        profile = {
+        const profile = {
             name: "",
             matches: [],
             banned: false,
-            age: String((Math.random() * 90) + 10),
+            age: String((Math.floor(Math.random() * 90) + 10)),
             bio: "Unknown",
-            preferences: "Unknown",
+            preferences: [],
             score: 0
         };
         profile.name += letter1[Math.floor(Math.random() * letter1.length)].toUpperCase();
@@ -39,13 +40,18 @@ function createProfile(number=10) {
         profile.name += letter2[Math.floor(Math.random() * letter2.length)];
 
         profile.email = profile.name.split(" ")[0].toLowerCase() + "@gmail.com";
-        
-        if (Math.random() * 2 === 0) {profile.gender = "Female"}
+
+        let gend = Math.floor(Math.random() * 2);
+        let target = Math.floor(Math.random() * 2);
+        if (gend === 0) {profile.gender = "Female"}
         else {profile.gender = "Male"}
 
-        if (Math.random() * 2 === 0) {profile.genderTarget = "Female"}
+        if (target === 0) {profile.genderTarget = "Female"}
         else {profile.genderTarget = "Male"}
 
+        for (let step2 = 0; step2 < (Math.floor(Math.random() * 3) + 1); step2++) {
+            profile.preferences.push(preferences[Math.floor(Math.random() * 5)])
+        }
         addProfile(profile)
     }
 }
@@ -61,9 +67,17 @@ function addProfile(profile) {
 }
 
 function removeProfile(email) {
+    for (let step = 0; step < profiles.length; step++) {
+        if(profiles[step].email === email) {profiles.splice(step, 1)}
+    }
+}
+
+function searchProfile(email) {
+    let qualified = null;
     profiles.forEach(function(profile) {
-        if(profile.email === email) {delete profile}
+        if(profile.email === email) {qualified = profile}
     })
+    return qualified;
 }
 
 /**
@@ -73,7 +87,7 @@ function removeProfile(email) {
 function displayAllProfiles() {
     profiles.forEach(function(profile) {
         if(profile.banned === false) {
-            console.log(profile.name + profile.age + profile.bio + profile.genderTarget);
+            console.log(profile.name + " ; " + profile.age + " ; " + profile.bio + " ; " + profile.genderTarget);
         }
     })
 }
@@ -82,27 +96,54 @@ function displayAllProfiles() {
 // également prendre en compte le genre recherché
 // également prendre en compte les préférences (il faut minimum 1 préférence en commun)
 function displayPossibleMatches(profileEmail, profileNumber=3) {
-    profiles.forEach(function(profile) {
-        if(profile.email === profileEmail) {
-            me = profile;
+    const me = searchProfile(profileEmail);
+    let id = Math.floor(Math.random() * profiles.length)
+    for (let step = 0; step < profileNumber; step++) {
+        const you = profiles[id]
+        if (Math.abs(me.score - you.score) <= 1 
+        && me.genderTarget === you.gender) {
+            let found = false
+            me.preferences.forEach(function(preference) {
+                if (you.preferences.find((element) => element === preference)
+                && found === false) {
+                    console.log(you.email);
+                    found = true;
+                }})
         }
-    })
+        id -= 1
+        if (id < 0) {id = profiles.length - 1}
+        // (true in me.preferences.forEach(function(preference) {preference in you.preferences})) === false 
+    }
 }
 
 // Matcher 2 profiles
 function matchProfiles(email, targetEmail) {
+    searchProfile(email).matches.push(targetEmail)
 }
+    
 
 // Refuser un profile, le score du profile est diminué de 1
 function refuseProfile(profile) {
-
+    profile.score -= 1;
 }
 
 function displayMyMatches(email) {
-
+    console.log(searchProfile(email).matches)
 }
 
 // Bannir un profile
 function banProfile(email) {
-
+    searchProfile(email).banned = true
 }
+
+createProfile();
+displayAllProfiles();
+
+const eliminated = profiles[Math.floor(Math.random() * profiles.length)].email 
+console.log("\nRemove process with " + eliminated + " : \n");
+removeProfile(eliminated);
+displayAllProfiles();
+
+const finding = profiles[Math.floor(Math.random() * profiles.length)].email 
+console.log("\nMatch possibility process with " + finding + " : \n");
+displayPossibleMatches(finding)
