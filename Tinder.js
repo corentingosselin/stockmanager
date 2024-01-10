@@ -53,7 +53,11 @@ function displayAllProfiles() {
 // également prendre en compte le genre recherché
 // également prendre en compte les préférences (il faut minimum 1 préférence en commun)
 function displayPossibleMatches(profileEmail, profileNumber=3) {
-
+    const profile = profiles.find(profile => profile.email === profileEmail);
+    if (!profile) {
+        console.log(`Profile with email ${profileEmail} not found.`);
+        return;
+    }
 }
 
 // Matcher 2 profiles
