@@ -11,7 +11,7 @@ export class Bank {
   }
 
   displayClient(name) {
-    let result = None;
+    let result = null;
     for (let client in clients) {
       if(client.name == name){result = client.getBalance();
       }
