@@ -15,7 +15,7 @@ export class Bank {
   displayClient(name) {
     let result = null;
     for (let client in clients) {
-      if(client.name == name){result = client.getBalance();
+      if(client.name === name){result = client.getBalance();
       }
     }
     console.log(result);
@@ -45,7 +45,7 @@ export class Bank {
 
   removeClient(name) {
     for (let step = 0; step < this.clients.length; step++) {
-      if(client.name == name){delete clients[step]}
+      if(client.name === name){delete clients[step]}
     }
   }
 }
