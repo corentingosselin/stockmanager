@@ -5,27 +5,18 @@ console.log('Hello World');
 const bank = new Bank("My Bank");
 
 
-// Ajout de 4 clients
-const client1 = new Client("John Doe", 1000);
-const client2 = new Client("Jane Doe", 1500);
-const client3 = new Client("Bob Smith", 2000);
-const client4 = new Client("Alice Johnson", 1200);
+const client = new Client("John Doe");
 
-// Ajout des clients à la banque
-bank.addClient(client1);
-bank.addClient(client2);
-bank.addClient(client3);
-bank.addClient(client4);
+const account1 = new Account("Savings", 1000);
+const account2 = new Account("Checking", 1500);
 
-// Affichage de tous les noms des clients
-bank.displayAllClientNames();
+client.addAccount(account1);
+client.addAccount(account2);
 
+client.deposit(500, "Savings");
+client.withdraw(200, "Checking");
 
-console.log(bank.name);
+console.log(`Balance for Savings: ${client.getBalance("Savings")}`);
+console.log(`Balance for Checking: ${client.getBalance("Checking")}`);
 
-client1.deposit(500); // Déposer 500 dans le compte de John Doe
-client1.withdraw(200); // Retirer 200 du compte de John Doe
-
-client1.transfer(200, client2);
-
-console.log(`New balance for ${client1.name}: ${client1.getBalance()}`);
+client.displayAllAccountsInfo();
