@@ -56,7 +56,7 @@ export class Bank {
 
 export class Client {
 
-  allowedNegativeBalance = true;
+  allowedNegativeBalance = false;
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
