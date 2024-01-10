@@ -95,7 +95,7 @@ class Building extends GameEntity {
 // Exemple d'utilisation
 const soldier = new Soldier("Guerrier");
 const villager = new Villager("Villageois");
-const building = new Building("Caserne", "Caserne");
+const building = new Building("Bâtiment 1", "Caserne");
 
 soldier.damage(villager);
 villager.damage(soldier);
