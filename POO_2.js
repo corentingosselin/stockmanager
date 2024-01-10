@@ -1,5 +1,6 @@
 /*
 
+Temps estimé 40mn
 
     2. intéraction entre les classes
 

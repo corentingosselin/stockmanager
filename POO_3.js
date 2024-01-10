@@ -1,4 +1,6 @@
 /*
+
+   temps: 30mn
     3. Héritage
 
     Classe de Base Book :
