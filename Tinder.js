@@ -60,6 +60,7 @@ function displayPossibleMatches(profileEmail, profileNumber=3) {
     }
 
     const potentialMatches = profiles.filter(matchProfile => {
+        //cette partie a été faite à l'aide de ChatGPT
         return (
             !matchProfile.banned &&
             matchProfile.email !== profileEmail &&
