@@ -93,9 +93,9 @@ function matchProfiles(email, targetEmail) {
 
 // Refuser un profile, le score du profile est diminué de 1
 function refuseProfile(profile) {
-    const profile = profiles.find(profile => profile.email === profileEmail);
-    if (profile) {
-        profile.score -= 1;
+    const profileToRefuse = profiles.find(profile => profile.email === profileEmail);
+    if (profileToRefuse) {
+        profileToRefuse.score -= 1;
         console.log(`Profile with email ${profileEmail} refused.`);
     } else {
         console.log(`Profile with email ${profileEmail} not found.`);
