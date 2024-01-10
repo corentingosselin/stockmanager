@@ -58,6 +58,23 @@ function displayPossibleMatches(profileEmail, profileNumber=3) {
         console.log(`Profile with email ${profileEmail} not found.`);
         return;
     }
+
+    const potentialMatches = profiles.filter(matchProfile => {
+        return (
+            !matchProfile.banned &&
+            matchProfile.email !== profileEmail &&
+            Math.abs(matchProfile.score - profile.score) <= 1 &&
+            matchProfile.gender === profile.genderTarget &&
+            matchProfile.preferences.some(preference => profile.preferences.includes(preference))
+        );
+    });
+
+    const limitedMatches = potentialMatches.slice(0, profileNumber);
+    console.log("Possible Matches:");
+    limitedMatches.forEach(match => {
+        const { name, age, bio, genderTarget } = match;
+        console.log(`Name: ${name}, Age: ${age}, Bio: ${bio}, Gender Target: ${genderTarget}`);
+    });
 }
 
 // Matcher 2 profiles
