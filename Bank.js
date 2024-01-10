@@ -4,17 +4,28 @@ export class Bank {
     this.name = name;
   }
 
-  clients = [];
+  clients = ["Client 1", "Client 2", "Client 3", "Client 4"];
 
-  addClient(client) {}
+  addClient(client) {
+    this.clients.push("Client 5")
+  }
 
-  displayClient(name) {}
+  displayClient(name) {
+    this.clients[0]
+  }
 
-  displayAllClients() {}
+  displayAllClients() {
+    for (let i=0; i < clients.lenght; i++) {
+      this.clients[i]
+    }
+  }
 
   displayRichestClient(top = 10) {}
 
-  removeClient(name) {}
+  removeClient(name) {
+    this.name.pop()
+    this.clients.pop()
+  }
 }
 
 export class Client {
