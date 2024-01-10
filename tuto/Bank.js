@@ -1,22 +1,24 @@
 export class Bank {
 
-  name = "";
   clients = [];
 
   constructor(name) {
-    this.name = name;
+    this._name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  getName() {
+    return this._name;
+  }
+
+  set name(value) {
+    this._name = value;
   }
 
 
-  addClient(client) {}
-
-  displayClient(name) {}
-
-  displayAllClients() {}
-
-  displayRichestClient(top = 10) {}
-
-  removeClient(name) {}
 }
 
 

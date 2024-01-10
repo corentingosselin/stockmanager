@@ -1,6 +1,5 @@
-import { Bank } from './Bank.js';
-console.log('Hello World');
+import { Bank } from "./tuto/Bank.js";
+console.log("Hello World");
 
-
-const bank = new Bank("My Bank");
-console.log(bank.name);
+const bank = new Bank("BNP");
+console.log(bank._name);
