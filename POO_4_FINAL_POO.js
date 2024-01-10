@@ -1,5 +1,8 @@
+
+
 /*
 
+temps : 30m,
 
 Partie 1: POLYMORPHISME
 
@@ -12,20 +15,32 @@ Objectif :
     Classe de Base GameEntity (Entité de Jeu) :
 
         Propriétés : name (string).
-        Méthode : performAction(), qui affiche un message générique.
-        Créer des Sous-Classes de GameEntity :
+                     health (number) : Santé de l'entité.
+        Méthode : 
+            - damage(target) : Affiche un message indiquant que l'entité attaque la cible.
 
-        Soldier (Soldat) : Implémentez performAction() pour attaquer.
-        Villager (Villageois) : Implémentez performAction() pour récolter des ressources.
-        Building (Bâtiment) : Ajoutez une propriété type (par exemple, "Caserne"). Implémentez performAction() pour créer des unités ou améliorer des technologies.
+
+    Créer des Sous-Classes de GameEntity :
+
+        Soldier (Soldat) : Implémentez attack() pour attaquer. 
+
+        Villager (Villageois) : Implémentez farm() pour récolter des ressources.
+
+        Building (Bâtiment) : Ajoutez une propriété type (par exemple,type="Caserne"). 
+        Implémentez produceUnit() pour produire une nouvelle unité, un building ne peut produire que des soldats.
+
+        toutes les fonctions peuvent juste utiliser un console.log() pour afficher un message de l'action
 
     Méthodes Polymorphiques :
 
-        Chaque sous-classe doit avoir sa propre implémentation de performAction().
+        Chaque sous-classe doit avoir sa propre implémentation de damage().
+        Car une entité prendra des dégâts différemment, 
+        par exemple le villageois perds 2 fois plus de points de vie que le soldat.
+        le building ne peut être attaqué que par des soldats.
 
     Tests et Validation :
 
-        Créez des instances de chaque sous-classe et appelez leur méthode performAction() pour démontrer des comportements spécifiques.
+        Créez des instances de chaque sous-classe et appelez leurs méthodes pour démontrer des comportements spécifiques.
 
 
 
