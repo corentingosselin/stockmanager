@@ -41,6 +41,12 @@ function removeProfile(email) {
  * afficher uniquement le nom, l'age et la bio et le genre recherché
  */
 function displayAllProfiles() {
+    profiles
+        .filter(profile => !profile.banned)
+        .forEach(profile => {
+            const { name, age, bio, genderTarget } = profile;
+            console.log(`Name: ${name}, Age: ${age}, Bio: ${bio}, Gender Target: ${genderTarget}`);
+        });
 }
 // afficher les profiles qui ont un score similaire à 1 points près 
 // exemple si mon profile x a un score de 5, afficher les profiles qui ont un score entre 4 et 6
