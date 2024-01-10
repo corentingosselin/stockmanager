@@ -78,7 +78,7 @@ export class CommonAccount {
 
 export class Client {
 
-  allowedNegativeBalance = true;
+  allowedNegativeBalance = false;
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
@@ -95,6 +95,7 @@ export class Client {
     if(amount > this.balance && !this.allowedNegativeBalance) {
       console.log("Not enough money");
     }
+    console.log("withdraw", amount);
   }
 
   getBalance() {
