@@ -10,7 +10,14 @@ export class Bank {
     this.clients.push(client);
   }
 
-  displayClient(name) {}
+  displayClient(name) {
+    const client = this.clients.find(this.client => client.name === name);
+    if(!client) {
+      console.log('Client not found');
+      return
+    }
+    console.log(client);
+  }
 
   displayAllClients() {
     const client = this.clients.find(client => client.name === name);
