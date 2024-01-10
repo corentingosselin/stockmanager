@@ -130,15 +130,15 @@ createProfile();
 displayAllProfiles();
 
 const eliminated = profiles[Math.floor(Math.random() * profiles.length)].email 
-console.log("\nRemove process with " + eliminated + " : \n");
+console.log("\nTest of the remove process with " + eliminated + " : \n");
 removeProfile(eliminated);
 displayAllProfiles();
 
 const finding = profiles[Math.floor(Math.random() * profiles.length)].email 
-console.log("\nMatch possibility process with " + finding + " : \n");
+console.log("\nTest of the match possibility process with " + finding + " : \n");
 displayPossibleMatches(finding)
 
-console.log("\nOther processes test : \n");
+console.log("\nOther functions test : \n");
 matchProfiles(profiles[0].email, profiles[1].email)
 displayMyMatches(profiles[0].email)
 refuseProfile(profiles[0])
