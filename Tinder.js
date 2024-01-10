@@ -15,11 +15,55 @@ const exampleProfile = {
     score: 0
 }
 
+function createProfile(number=10) {
+    letter1 = ["b", "f", "g", "j", "k", "l", "m", "m", "p", "s", "t"]
+    letter2 = ["a", "e", "i", "o", "u", "y"]
+    for (let step = 0; step < number; step++) {
+        profile = {
+            name: "",
+            matches: [],
+            banned: false,
+            age: String((Math.random() * 90) + 10),
+            bio: "Unknown",
+            preferences: "Unknown",
+            score: 0
+        };
+        profile.name += letter1[Math.floor(Math.random() * letter1.length)].toUpperCase();
+        profile.name += letter2[Math.floor(Math.random() * letter2.length)];
+        profile.name += letter1[Math.floor(Math.random() * letter1.length)];
+        profile.name += letter2[Math.floor(Math.random() * letter2.length)];
+        profile.name += " "
+        profile.name += letter1[Math.floor(Math.random() * letter1.length)].toUpperCase();
+        profile.name += letter2[Math.floor(Math.random() * letter2.length)];
+        profile.name += letter1[Math.floor(Math.random() * letter1.length)];
+        profile.name += letter2[Math.floor(Math.random() * letter2.length)];
+
+        profile.email = profile.name.split(" ")[0].toLowerCase() + "@gmail.com";
+        
+        if (Math.random() * 2 === 0) {profile.gender = "Female"}
+        else {profile.gender = "Male"}
+
+        if (Math.random() * 2 === 0) {profile.genderTarget = "Female"}
+        else {profile.genderTarget = "Male"}
+
+        addProfile(profile)
+    }
+}
+
 //un profile avec un email banni ne peut pas être ajouté
 function addProfile(profile) {
+    if (profile.banned === false) {
+        profiles.push(profile)
+    }
+    else {
+        console.log(profile.email + " acount is not allowed.")
+    }
 }
 
 function removeProfile(email) {
+    profiles.forEach(function(element) {
+        if(element.email === email) {delete element}
+    })
 }
 
 /**
@@ -27,6 +71,11 @@ function removeProfile(email) {
  * afficher uniquement le nom, l'age et la bio et le genre recherché
  */
 function displayAllProfiles() {
+    profiles.forEach(function(profile) {
+        if(profile.banned === false) {
+            console.log(profile.name + profile.age + profile.bio + profile.genderTarget);
+        }
+    })
 }
 // afficher les profiles qui ont un score similaire à 1 points près 
 // exemple si mon profile x a un score de 5, afficher les profiles qui ont un score entre 4 et 6
