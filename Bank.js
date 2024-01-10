@@ -6,13 +6,34 @@ export class Bank {
 
   clients = [];
 
-  addClient(client) {}
+  addClient(client) {
+    this.clients.push(client)
+  }
 
-  displayClient(name) {}
+  displayClient(name) {
+    var result = "";
+    for (var client in clients) {
+      if(client.name == name){result += i.getBalance();
+      }
+    }
+    console.log(result);
+  }
 
-  displayAllClients() {}
+  displayAllClients() {
+    for (var client in clients) {
+      client.displayClientIdentity();
+    }
+  }
 
-  displayRichestClient(top = 10) {}
+  displayRichestClient(top = 10) {
+    for (let step = 0; step < top; step++) {
+      for (var client in clients) {
+        if(client.balance == name){result += i.getBalance();
+        }
+      }
+    console.log(result);
+    }
+  }
 
   removeClient(name) {}
 }
@@ -24,14 +45,24 @@ export class Client {
     this.balance = balance;
   }
 
-  deposit(amount) {}
+  deposit(amount) {
+    this.balance += amount;
+  }
 
-  withdraw(amount) {}
+  withdraw(amount) {
+    this.balance -= amount;
+  }
 
-  getBalance() {}
+  getBalance() {
+    return this.balance;
+  }
 
-  displayClientIdentity() {}
+  displayClientIdentity() {
+    console.log(this.name);
+  }
 
-  updateClientIdentity(name) {}
+  updateClientIdentity(name) {
+    this.name = name;
+  }
     
 }
