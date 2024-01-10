@@ -1,10 +1,12 @@
 export class Bank {
+
   name = "";
+  clients = [];
+
   constructor(name) {
     this.name = name;
   }
 
-  clients = [];
 
   addClient(client) {
     this.clients.push(client)
@@ -13,7 +15,7 @@ export class Bank {
   displayClient(name) {
     let result = null;
     for (let client in clients) {
-      if(client.name == name){result = client.getBalance();
+      if(client.name === name){result = client.getBalance();
       }
     }
     console.log(result);
@@ -43,13 +45,18 @@ export class Bank {
 
   removeClient(name) {
     for (let step = 0; step < this.clients.length; step++) {
-      if(client.name == name){delete clients[step]}
+      if(client.name === name){delete clients[step]}
     }
   }
 }
 
+
+
+
+
 export class Client {
 
+  allowedNegativeBalance = false;
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
@@ -60,7 +67,10 @@ export class Client {
   }
 
   withdraw(amount) {
-    this.balance -= amount;
+    if(amount > this.balance && !this.allowedNegativeBalance) {
+      console.log("Not enough money");
+    }
+    else{this.balance -= amount;}
   }
 
   getBalance() {
