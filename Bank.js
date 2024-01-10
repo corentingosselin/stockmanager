@@ -26,7 +26,9 @@ export class Client {
 
   deposit(amount) {}
 
-  withdraw(amount) {}
+  withdraw(amount) {
+    console.log("withdraw", amount);
+  }
 
   getBalance() {}
 
