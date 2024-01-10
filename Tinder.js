@@ -115,5 +115,13 @@ function displayMyMatches(email) {
 
 // Bannir un profile
 function banProfile(email) {
+    const profile = profiles.find(profile => profile.email === email);
+    if (profile) {
+        profile.banned = true;
+        bannedEmails.push(email);
+        console.log(`Profile with email ${email} banned.`);
+    } else {
+        console.log(`Profile with email ${email} not found.`);
+    }
 
 }
