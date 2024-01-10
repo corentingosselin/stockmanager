@@ -2,18 +2,6 @@
 
 // ajouter au moins 10 profils
 const profiles = [];
-const exampleProfile = {
-    name: "John Doe",
-    email: "john@gmail.com",
-    gender: "Male",
-    genderTarget: "Female",
-    matches: [], //liste d'email
-    banned: false,
-    age: 18,
-    bio: "I like to code",
-    preferences: ["tennis","pizza","voyages"],
-    score: 0
-}
 
 function createProfile(number=10) {
     const letter1 = ["b", "f", "g", "j", "k", "l", "m", "m", "p", "s", "t"]
@@ -62,7 +50,7 @@ function addProfile(profile) {
         profiles.push(profile)
     }
     else {
-        console.log(profile.email + " acount is not allowed.")
+        console.log(profile.email + " account is not allowed.")
     }
 }
 
@@ -97,23 +85,25 @@ function displayAllProfiles() {
 // également prendre en compte les préférences (il faut minimum 1 préférence en commun)
 function displayPossibleMatches(profileEmail, profileNumber=3) {
     const me = searchProfile(profileEmail);
-    let id = Math.floor(Math.random() * profiles.length)
+    let id = Math.floor(Math.random() * profiles.length);
+    let perso_found = false;
     for (let step = 0; step < profileNumber; step++) {
         const you = profiles[id]
         if (Math.abs(me.score - you.score) <= 1 
         && me.genderTarget === you.gender) {
-            let found = false
+            let pref_found = false
             me.preferences.forEach(function(preference) {
                 if (you.preferences.find((element) => element === preference)
-                && found === false) {
+                && pref_found === false) {
                     console.log(you.email);
-                    found = true;
+                    pref_found = true;
+                    perso_found = true;
                 }})
         }
         id -= 1
         if (id < 0) {id = profiles.length - 1}
-        // (true in me.preferences.forEach(function(preference) {preference in you.preferences})) === false 
     }
+    if (perso_found === false) {console.log("Possible partner not found.")}
 }
 
 // Matcher 2 profiles
@@ -147,3 +137,12 @@ displayAllProfiles();
 const finding = profiles[Math.floor(Math.random() * profiles.length)].email 
 console.log("\nMatch possibility process with " + finding + " : \n");
 displayPossibleMatches(finding)
+
+console.log("\nOther processes test : \n");
+matchProfiles(profiles[0].email, profiles[1].email)
+displayMyMatches(profiles[0].email)
+refuseProfile(profiles[0])
+console.log(profiles[0].score)
+banProfile(profiles[0].email)
+const copy_first = profiles[0]
+addProfile(copy_first)
