@@ -27,6 +27,13 @@ function addProfile(profile) {
 }
 
 function removeProfile(email) {
+    const index = profiles.findIndex(profile => profile.email === email);
+    if (index !== -1) {
+        profiles.splice(index, 1);
+        console.log(`Profile with email ${email} removed.`);
+    } else {
+        console.log(`Profile with email ${email} not found.`);
+    }
 }
 
 /**
