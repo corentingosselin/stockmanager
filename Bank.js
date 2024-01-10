@@ -6,7 +6,9 @@ export class Bank {
 
   clients = [];
 
-  addClient(client) {}
+  addClient(client) {
+    this.clients.push(client);
+  }
 
   displayClient(name) {}
 
