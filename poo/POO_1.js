@@ -1,6 +1,6 @@
 /**
  * 
- *  1. POO
+ *  1. POO (10mn)
  * 
  *   Créer un objet Book avec les propriétés suivantes :
  *   

@@ -1,6 +1,7 @@
 export class Bank {
 
   clients = [];
+  _id = "1234";
 
   constructor(name) {
     this._name = name;
@@ -18,9 +19,12 @@ export class Bank {
     this._name = value;
   }
 
+  get id() {
+    return this._id;
+  }
+
 
 }
-
 
 
 

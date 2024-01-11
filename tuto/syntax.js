@@ -7,8 +7,19 @@ const myBoolean = true;
 const nullVariable = null;
 const undefinedVariable = undefined;
 
+const text = "Hello World";
+const text2 = "Hello World";
+
+if (text === text2) {
+  console.log("text === text2");
+}
+
 const symbol = Symbol("foo");
 const symbol2 = Symbol("foo");
+
+if (symbol !== symbol2) {
+  console.log("symbol !== symbol2");
+}
 
 // Les opérateurs
 
@@ -52,6 +63,8 @@ const myConcatenation4 = "Hello" + null;
 const myConcatenation5 = "Hello" + undefined;
 const myConcatenation6 = "Hello" + Symbol("foo");
 
+const myConcatenation7 = `Hello ${myVariable}`;
+
 // Les opérateurs de type
 
 const myType = typeof 42;
@@ -59,6 +72,8 @@ const myType2 = typeof "Hello";
 const myType3 = typeof true;
 const myType4 = typeof null;
 const myType5 = typeof undefined;
+
+console.log(myType);
 
 // Les opérateurs de conversion
 
@@ -73,6 +88,19 @@ const myBoolean6 = Boolean(undefined);
 // Les structures de contrôle
 
 // Les conditions
+
+if (true) {
+  console.log("Hello World");
+  if (true) {
+    console.log("Hello World");
+    if (true) {
+      console.log("Hello World");
+      const myFunction = () => {
+        console.log("Hello World");
+      };
+    }
+  }
+}
 
 if (true) {
   console.log("Hello World");
@@ -96,6 +124,16 @@ do {
   console.log("Hello World");
 } while (true);
 
+const array = ["pascal", "pascal", "pascal", "pascal", "pascal", "pascal"];
+
+array.map((element) => {
+
+  const lastName = " legrand";
+  return element + lastName;
+
+});
+
+
 // Les fonctions
 
 function myFunction() {}
@@ -106,6 +144,7 @@ const myFunction3 = () => {};
 
 // Les tableaux
 
+const monChiffre = 42;
 const myArray = [];
 const myArray2 = [1, 2, 3];
 const myArray3 = ["Hello", "World"];
@@ -113,6 +152,9 @@ const myArray4 = [true, false];
 const myArray5 = [null, undefined];
 const myArray6 = [Symbol("foo"), Symbol("bar")];
 const myArray7 = [1, "Hello", true, null, undefined, Symbol("foo")];
+
+myArray.push(1);
+myArray.pop();
 
 // Les objets
 
@@ -129,14 +171,20 @@ const myObject3 = {
 // Les classes
 
 class MyClass {
-  constructor() {
-    this.foo = "bar";
+  foo = "bar";
+  constructor(name) {
+    this.name = name;
   }
 }
 
 // Les méthodes
 
 class MyClass2 {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
   myMethod() {
     console.log("Hello World");
   }
@@ -159,8 +207,10 @@ class MyClass4 {
 // Les constructeurs
 
 class MyClass5 {
-  constructor(myParameter) {
-    console.log(myParameter);
+  constructor(myParameter) {}
+
+  myMethod() {
+    console.log("Hello World");
   }
 }
 
@@ -170,4 +220,11 @@ class MyClass6 extends MyClass5 {
   constructor(myParameter) {
     super(myParameter);
   }
+
+  myMethod() {
+    console.log("Hello bonsoir");
+    super.myMethod();
+  }
 }
+
+new MyClass6("Hello World").myMethod();
