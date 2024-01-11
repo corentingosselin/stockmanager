@@ -41,8 +41,64 @@ Objectif :
     Tests et Validation :
 
         Créez des instances de chaque sous-classe et appelez leurs méthodes pour démontrer des comportements spécifiques.
-
-
-
- */
-
+*/
+class GameEntity {
+    health = 100;
+    constructor(name) {
+      this.name = name;
+    }
+  
+    damage(damager) {
+      console.log(`${this.name} attaque ${damager.name}.`);
+      this.health -= 10;
+    }
+  }
+  
+  class Soldier extends GameEntity {
+    damage(damager) {
+      console.log(`${this.name} attaque ${damager.name}.`);
+      this.health -= 20;
+    }
+  }
+  
+  class Villager extends GameEntity {
+    damage(damager) {
+      console.log(`${this.name} attaque ${damager.name}.`);
+      this.health -= 40;
+    }
+  
+    farm() {
+      console.log(`${this.name} récolte des ressources.`);
+    }
+  }
+  
+  class Building extends GameEntity {
+    constructor(name, type) {
+      super(name);
+      this.type = type;
+    }
+  
+    damage(damager) {
+      if (damager instanceof Soldier) {
+        console.log(`${this.name} attaque ${damager.name}.`);
+        this.health -= 50;
+      }
+    }
+  
+    produceUnits() {
+      console.log(`${this.name} produit des unités.`);
+    }
+  }
+  
+  // Exemple d'utilisation
+  const soldier = new Soldier("Guerrier");
+  const villager = new Villager("Villageois");
+  const building = new Building("Bâtiment 1", "Caserne");
+  
+  soldier.damage(villager);
+  villager.damage(soldier);
+  building.damage(soldier);
+  building.damage(villager);
+  
+  console.log(soldier);
+  console.log(villager);
