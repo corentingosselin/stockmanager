@@ -45,5 +45,7 @@
 // trouver le design pattern le plus adapté à chaque contexte:
 
 
+// factory, facade, builder
+
 
 
