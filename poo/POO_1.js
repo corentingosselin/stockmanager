@@ -14,3 +14,19 @@
  * 
  * 
  */
+
+const book = {
+    title: "Titre",
+    author: "Auteur",
+    numberOfPages: 150
+}
+
+function getSummary() {
+    console.log(`Le livre ${book.title} a été écrit par ${book.author} et contient ${book.numberOfPages} pages.`)
+}
+
+book.title = "'Titre test'";
+book.author = "'Auteur test'";
+book.numberOfPages = 300
+
+getSummary()
