@@ -13,6 +13,8 @@
 
 // A.  Un système de messagerie qui est capable de prendre whatsapp, sms, email, facebook messenger, etc...
 // Ce système est capable d'envoyer des messages à partir de n'importe quelle plateforme.
+// on doit pouvoir combiner plusieurs plateformes pour envoyer un message 
+
 
 // B. On a un cinema avec une salle de projection, un bar, un restaurant, un guichet, un parking, etc...
 // On veut pouvoir gérer le cinema facilement avec des fonctions comme:
