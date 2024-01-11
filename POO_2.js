@@ -103,10 +103,10 @@ console.log(CDI.findBook("1048295039"));
 CDI.findBook("0");
 console.log("\n");
 
-CDI.borrowBook("8402944721");
-CDI.borrowBook("8402944721");
+CDI.borrowBook("8430520534");
+CDI.borrowBook("8430520534");
 CDI.borrowBook("0");
 console.log("\n");
 
-CDI.returnBook("8402944721");
-CDI.borrowBook("8402944721");
+CDI.returnBook("8430520534");
+CDI.borrowBook("8430520534");
