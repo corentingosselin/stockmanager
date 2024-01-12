@@ -1,0 +1,52 @@
+h1 {
+    color: rgb(255, 166, 0);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.game-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.shopping-menu {
+    margin-top: 2rem;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+
+    background-color: orange;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    font-weight: bold;
+
+}
+
+.miner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

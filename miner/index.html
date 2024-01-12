@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Miner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <h1>Miner game</h1>
+
+      <p id="score">Score: 0 lingots</p>
+      <p id="pickaxe-level">Pioche niveau: 1</p>
+
+      <div class="game-content">
+        <div class="miner">
+          <p id="miner-amount">Mineurs: 0</p>
+          <img src="resources/miner.png" alt="miner" width="150rem" />
+        </div>
+        <img src="resources/ore.png" alt="ore" width="150rem" id="gold-ore"/>
+        <div class="shopping-menu">
+          <button class="button" id="buy-miner-button">Acheter un mineur (20 lingos)</button>
+          <button class="button" id="upgrade-pickaxe-button">
+            Améliorer sa pioche (10 lingos)
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
