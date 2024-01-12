@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
   let pickaxecost=500;
   let minercost=150;
   let minekartcost=1100;
-  let mineshaftcost=12000;
-  let worldcost=1300000;
+  let mineshaftcost=1200000;
+  let worldcost=1300000000;
   
 
   // interaction avec le fichier html
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (gold >= minekartcost) {
 
       gold -= minekartcost;
-      minekartcost += 150 ;
+      minekartcost += 1100 ;
       
       minekart++;
 
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (gold >= mineshaftcost) {
       
       gold -= mineshaftcost;
-      mineshaftcost += 1650 ;
+      mineshaftcost += 1165000 ;
       
       
       mineshaft++;
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (gold >= worldcost) {
       
       gold -= worldcost;
-      worldcost += 18000 ;
+      worldcost += 1118000000 ;
       
       
       world++;
