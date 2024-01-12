@@ -23,11 +23,11 @@ function sendMail(message) {
 console.log("Purchase started");
 
 makeTransaction(100);
-sendMail("Purchase done");
+sendMail("email de confirmation");
 
 console.log("Purchase done");
 
 
 // 1 - exécuter le code et observer le résultat, le comportement est-il celui attendu ?
 // 2 - tenter de corriger le code pour que le comportement soit celui attendu
-// 3 l'email doit être envoyé après la transaction, si la transaction échoue, l'email ne doit pas être envoyé
+// 3 l'email doit être envoyé uniquement si la transaction a réussi
