@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+
+    <header>
+      <h1>Miner Game</h1>
+    </header>
+
+    <main>
+      <div id="game-container">
+        <button id="Ore" onclick="mineOre()" title="Mine Ore">
+          <img src="ore.png" alt="Ore" />
+        </button>
+        <img id="Miner" src="miner.png" alt="Miner" />
+      </div>
+
+      <div id="stats-container">
+        <h2 id="miner-count">Miner Count: 0</h2>
+        <h3 id="score">Score: 0 </h3>
+        <h4 id="pickaxe-level">Pioche Level: 0</h4>
+      </div>
+
+      <div id="buttons-container">
+        <button id="buyMinerButton" onclick="buyMiner()">Acheter un mineur (10 lingots)</button>
+        <button id="upgradePickaxeButton" onclick="upgradePickaxe()">Amiéliorer la pioche (10 lingots)</button>
+      </div>
+    </main>
+
+  </body>
+</html>
