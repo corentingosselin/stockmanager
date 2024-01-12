@@ -3,6 +3,21 @@ h1 {
 }
 
 img {
-    width: 100%;
+    width: 50%;
     position: relative;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    display: flex;
+    flex-direction: line;
+}
+
+img + button {
+    border: none;
+    background: none;
 }
