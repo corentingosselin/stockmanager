@@ -109,10 +109,3 @@ class Pickaxe {
   }
 }
 
-class Player {
-  constructor() {}
-}
-
-class Shop {
-  constructor() {}
-}
