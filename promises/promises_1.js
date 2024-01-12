@@ -25,7 +25,7 @@ console.log("Purchase started");
 makeTransaction(100);
 sendMail("email de confirmation");
 
-console.log("Purchase done");
+console.log("Bye Bye !");
 
 
 // 1 - exécuter le code et observer le résultat, le comportement est-il celui attendu ?
