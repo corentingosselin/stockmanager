@@ -12,9 +12,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let gold = 0;
   let miners = 0;
-  let pickaxeLevel = 1;
+  let pickaxeLevel = 10;
   let minekart = 0;
   let mineshaft = 0;
+  let world = 0;
+
+  let pickaxecost=500;
+  let minercost=150;
+  let minekartcost=1100;
+  let mineshaftcost=12000;
+  let worldcost=1300000;
+  
 
   // interaction avec le fichier html
   const ingotsDisplay = document.querySelector(".ingots ");
@@ -22,11 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
   const picaxelevel = document.querySelector(".picaxelevel ");
   const minekartlevel = document.querySelector(".minekartlevel ");
   const mineshaftlevel = document.querySelector(".mineshaftlevel ");
+  const worldlevel = document.querySelector(".worldlevel ");
+
   const mineWindow = document.getElementById("minewindows");
+
   const shopMiner = document.querySelector("#shop .miner");
   const shopPicaxe = document.querySelector("#shop .picaxe");
   const shopMinekart = document.querySelector("#shop .minekart");
   const shopMineshaft = document.querySelector("#shop .mineshaft");
+  const shopworld = document.querySelector("#shop .world");
+
+  const pickaxecostdisplay = document.querySelector(".pickaxecost ");
+  const minercostdisplay = document.querySelector(".minercost ");
+  const minekartcostdisplay = document.querySelector(".minekartcost ");
+  const mineshaftcostdisplay = document.querySelector(".mineshaftcost ");
+  const worldcostdisplay = document.querySelector(".worldcost ");
 
   // fonctions pour mettre à jour l'affichage
   function updateGoldDisplay() {
@@ -49,10 +67,37 @@ document.addEventListener("DOMContentLoaded", function() {
     mineshaftlevel.textContent = mineshaft;
   }
 
+  function updateworldlevel() {
+    worldlevel.textContent = world;
+  }
+
+
+
+  function updateMinercost() {
+    minercostdisplay.textContent = minercost;
+  }
+
+  function updatepicaxecost() {
+    pickaxecostdisplay.textContent = pickaxecost;
+  }
+
+  function updateminekartcost() {
+    minekartcostdisplay.textContent = minekartcost;
+  }
+
+  function updatemineshaftcost() {
+    mineshaftcostdisplay.textContent = mineshaftcost;
+  }
+
+  function updateworldcost() {
+    worldcostdisplay.textContent = worldcost;
+  }
+
+
 
   mineWindow.addEventListener("click", function() {
 
-    gold += pickaxeLevel;
+    gold +=pickaxeLevel;
 
 
     updateGoldDisplay();
@@ -60,14 +105,22 @@ document.addEventListener("DOMContentLoaded", function() {
     updatepicaxelevel();
     updateminekartlevel();
     updatemineshaftlevel();
+    updatepicaxecost();
+    updateMinercost();
+    updateminekartcost();
+    updatemineshaftcost();
+    updateworldcost();
+    updateworldlevel();
+
   });
 
 
   shopMiner.addEventListener("click", function() {
 
-    if (gold >= 1000) {
+    if (gold >= minercost) {
 
-      gold -= 1000;
+      gold -= minercost;
+      minercost += 30;
       
       miners++;
 
@@ -76,32 +129,46 @@ document.addEventListener("DOMContentLoaded", function() {
       updatepicaxelevel();
       updateminekartlevel();
       updatemineshaftlevel();
+      updatepicaxecost();
+      updateMinercost();
+      updateminekartcost();
+      updatemineshaftcost();
+      updateworldcost();
+      updateworldlevel();
     }
   });
 
   
   shopPicaxe.addEventListener("click", function() {
   
-    if (gold >= 100) {
+    if (gold >= pickaxecost) {
 
-      gold -= 100;
+      gold -= pickaxecost;
+      pickaxecost *= 10;
       
-      pickaxeLevel++;
+      pickaxeLevel *=2;
 
       updateGoldDisplay();
       updateMinerDisplay();
       updatepicaxelevel();
       updateminekartlevel();
       updatemineshaftlevel();
+      updatepicaxecost();
+      updateMinercost();
+      updateminekartcost();
+      updatemineshaftcost();
+      updateworldcost();
+      updateworldlevel();
     }
   });
 
   
   shopMinekart.addEventListener("click", function() {
     
-    if (gold >= 10000) {
+    if (gold >= minekartcost) {
 
-      gold -= 10000;
+      gold -= minekartcost;
+      minekartcost += 150 ;
       
       minekart++;
 
@@ -110,15 +177,22 @@ document.addEventListener("DOMContentLoaded", function() {
       updatepicaxelevel();
       updateminekartlevel();
       updatemineshaftlevel();
+      updatepicaxecost();
+      updateMinercost();
+      updateminekartcost();
+      updatemineshaftcost();
+      updateworldcost();
+      updateworldlevel();
     }
   });
 
   
   shopMineshaft.addEventListener("click", function() {
     
-    if (gold >= 1000000) {
+    if (gold >= mineshaftcost) {
       
-      gold -= 1000000;
+      gold -= mineshaftcost;
+      mineshaftcost += 1650 ;
       
       
       mineshaft++;
@@ -128,19 +202,57 @@ document.addEventListener("DOMContentLoaded", function() {
       updatepicaxelevel();
       updateminekartlevel();
       updatemineshaftlevel();
+      updatepicaxecost();
+      updateMinercost();
+      updateminekartcost();
+      updatemineshaftcost();
+      updateworldcost();
+      updateworldlevel();
     }
   });
 
-  // fonction pour actualiser toutes les demis secondes
+
+  shopworld.addEventListener("click", function() {
+    
+    if (gold >= worldcost) {
+      
+      gold -= worldcost;
+      worldcost += 18000 ;
+      
+      
+      world++;
+
+      updateGoldDisplay();
+      updateMinerDisplay();
+      updatepicaxelevel();
+      updateminekartlevel();
+      updatemineshaftlevel();
+      updatepicaxecost();
+      updateMinercost();
+      updateminekartcost();
+      updatemineshaftcost();
+      updateworldcost();
+      updateworldlevel();
+    }
+  });
+
+  // fonction pour actualiser toutes les secondes
   setInterval(function() {
     gold += miners;
     miners += minekart;
     minekart += mineshaft;
+    mineshaft += world;
 
     updateGoldDisplay();
     updateMinerDisplay();
     updatepicaxelevel();
     updateminekartlevel();
     updatemineshaftlevel();
-  }, 500);
+    updatepicaxecost();
+    updateMinercost();
+    updateminekartcost();
+    updatemineshaftcost();
+    updateworldcost();
+    updateworldlevel();
+  }, 100);
 });
