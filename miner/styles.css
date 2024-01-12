@@ -1,3 +1,89 @@
+html {
+    padding: 10px;
+}
+body {
+    display: grid;
+    margin: 10px;
+}
 h1 {
     color: rgb(255, 166, 0);
+    background-color: black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+#ressources h2 {
+    background-color: aqua;
+    margin: 10px;
+    width: 200px;
+    height: 100px;
+}
+#ressources {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#minewindows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: auto;
+    height: 400px;
+}
+#minewindows img {
+    height: 100%;
+}
+#minewindows p {
+    padding: 10px;
+    font-size: 20px;
+    background-color: black;
+    color: rgb(255, 166, 0);
+    border-radius: 10px;
+}
+
+#shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+img{
+    width: auto;
+    height: auto;
+}
+img {
+    height: 100px;
+}
+
+.ingots img {
+    height: 100%;
+}
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    border-radius: 10px;
+    width: 500px;
+
+}
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+#ressources div p {
+    font-size: 30px;
+}
+#shop div {
+    height: 300px;
+    max-width: 800px;
 }
