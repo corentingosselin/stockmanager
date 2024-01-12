@@ -25,12 +25,14 @@ async function sendMail(message) {
 
 console.log("Purchase started");
 
-makeTransaction(100).then((message) => {
-  console.log(message);
-  sendMail("The transaction is a success");
-}).catch((error) => {
-  console.log(error);
-});
+makeTransaction(100)
+  .then((message) => {
+    console.log(message);
+    sendMail("The transaction is a success");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 console.log("Purchase done");
 
